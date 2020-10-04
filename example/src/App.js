@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Bar } from 'react-chartjs-2'
 
-import Pdf from 'ngager-pdfwriter'
+import Pdf from '@meetingmaker/pdfwriter'
 
 const html2canvas = require('html2canvas');
 

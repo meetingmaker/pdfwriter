@@ -1,13 +1,13 @@
 {
-  "name": "ngager-pdfwriter-example",
-  "homepage": "https://ngager-group.github.io/ngager-pdfwriter",
+  "name": "@meetingmaker/pdfwriter-example",
+  "homepage": "https://meetingmaker.github.io/pdfwriter",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "chart.js": "^2.8.0",
     "html2canvas": "^1.0.0-rc.5",
-    "ngager-pdfwriter": "file:..",
+    "@meetingmaker/pdfwriter": "file:..",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-chartjs-2": "^2.7.0",
