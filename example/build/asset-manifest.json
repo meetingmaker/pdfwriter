@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/ngager-pdfwriter/static/css/main.a2b7b0b6.chunk.css",
-    "main.js": "/ngager-pdfwriter/static/js/main.943e609d.chunk.js",
-    "main.js.map": "/ngager-pdfwriter/static/js/main.943e609d.chunk.js.map",
-    "runtime-main.js": "/ngager-pdfwriter/static/js/runtime-main.7a9cf642.js",
-    "runtime-main.js.map": "/ngager-pdfwriter/static/js/runtime-main.7a9cf642.js.map",
-    "static/js/2.1e4f3dd0.chunk.js": "/ngager-pdfwriter/static/js/2.1e4f3dd0.chunk.js",
-    "static/js/2.1e4f3dd0.chunk.js.map": "/ngager-pdfwriter/static/js/2.1e4f3dd0.chunk.js.map",
-    "index.html": "/ngager-pdfwriter/index.html",
-    "precache-manifest.bb1c8fa8c2e62d9c93908a0fdc30d2e7.js": "/ngager-pdfwriter/precache-manifest.bb1c8fa8c2e62d9c93908a0fdc30d2e7.js",
-    "service-worker.js": "/ngager-pdfwriter/service-worker.js",
-    "static/css/main.a2b7b0b6.chunk.css.map": "/ngager-pdfwriter/static/css/main.a2b7b0b6.chunk.css.map",
-    "static/js/2.1e4f3dd0.chunk.js.LICENSE.txt": "/ngager-pdfwriter/static/js/2.1e4f3dd0.chunk.js.LICENSE.txt"
+    "main.css": "/pdfwriter/static/css/main.a2b7b0b6.chunk.css",
+    "main.js": "/pdfwriter/static/js/main.db1f1940.chunk.js",
+    "main.js.map": "/pdfwriter/static/js/main.db1f1940.chunk.js.map",
+    "runtime-main.js": "/pdfwriter/static/js/runtime-main.42a109b1.js",
+    "runtime-main.js.map": "/pdfwriter/static/js/runtime-main.42a109b1.js.map",
+    "static/js/2.d33dd207.chunk.js": "/pdfwriter/static/js/2.d33dd207.chunk.js",
+    "static/js/2.d33dd207.chunk.js.map": "/pdfwriter/static/js/2.d33dd207.chunk.js.map",
+    "index.html": "/pdfwriter/index.html",
+    "precache-manifest.565c6d47dd10813772dccdd593fb8432.js": "/pdfwriter/precache-manifest.565c6d47dd10813772dccdd593fb8432.js",
+    "service-worker.js": "/pdfwriter/service-worker.js",
+    "static/css/main.a2b7b0b6.chunk.css.map": "/pdfwriter/static/css/main.a2b7b0b6.chunk.css.map",
+    "static/js/2.d33dd207.chunk.js.LICENSE.txt": "/pdfwriter/static/js/2.d33dd207.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7a9cf642.js",
-    "static/js/2.1e4f3dd0.chunk.js",
+    "static/js/runtime-main.42a109b1.js",
+    "static/js/2.d33dd207.chunk.js",
     "static/css/main.a2b7b0b6.chunk.css",
-    "static/js/main.943e609d.chunk.js"
+    "static/js/main.db1f1940.chunk.js"
   ]
 }

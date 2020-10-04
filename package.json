@@ -40,14 +40,15 @@
     "react-dom": "^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@svgr/rollup": "^2.4.1",
-    "babel-eslint": "^8.2.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-external-helpers": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-react": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.5.5",
     "@babel/preset-stage-0": "^7.0.0",
+    "@rollup/plugin-url": "^4.0.0",
+    "@svgr/rollup": "^2.4.1",
+    "babel-eslint": "^8.2.5",
     "cross-env": "^6.0.3",
     "eslint": "^6.7.1",
     "eslint-config-standard": "^14.1.0",
@@ -66,8 +67,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-postcss": "^2.0.3",
-    "@rollup/plugin-url": "^4.0.0"
+    "rollup-plugin-postcss": "^2.0.3"
   },
   "files": [
     "dist"
