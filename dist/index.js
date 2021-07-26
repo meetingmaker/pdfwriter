@@ -5,18 +5,78 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var _replace = _interopDefault(require('lodash/replace'));
 var _split = _interopDefault(require('lodash/split'));
 
-/* eslint-disabled: 1 */
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
 
 function rgb2hex(str) {
-  return '#' + str.split(',').map(s => (s.replace(/\D/g, '') | 0).toString(16)).map(s => s.length < 2 ? '0' + s : s).join('');
+  return '#' + str.split(',').map(function (s) {
+    return (s.replace(/\D/g, '') | 0).toString(16);
+  }).map(function (s) {
+    return s.length < 2 ? '0' + s : s;
+  }).join('');
 }
 
 function findBoldTag(str, open) {
-  let i = 0;
-  const normalText = str.substr(i, open - i);
-  let boldText;
+  var i = 0;
+  var normalText = str.substr(i, open - i);
+  var boldText;
   i = open + 3;
-  const close = str.indexOf('</b>', i);
+  var close = str.indexOf('</b>', i);
 
   if (close > i) {
     boldText = str.substr(i, close - i);
@@ -32,25 +92,25 @@ function findBoldTag(str, open) {
 
   return {
     n: i,
-    normalText,
-    boldText
+    normalText: normalText,
+    boldText: boldText
   };
 }
 
 function findSpanTag(str, open) {
   // console.log('findSpanTag', str);
-  let i = 0;
-  const normalText = str.substr(i, open - i);
-  const span = {
+  var i = 0;
+  var normalText = str.substr(i, open - i);
+  var span = {
     text: '',
     font: 'n'
   };
-  const close = str.indexOf('</span>', open);
+  var close = str.indexOf('</span>', open);
 
   if (close > open) {
-    const spanHTML = str.substr(open, close + 6 - i);
+    var spanHTML = str.substr(open, close + 6 - i);
     i = close + 6;
-    const div = document.createElement('div');
+    var div = document.createElement('div');
     div.innerHTML = spanHTML;
 
     if (div.firstChild && div.firstChild.style && div.firstChild.style !== undefined) {
@@ -74,242 +134,297 @@ function findSpanTag(str, open) {
   }
 
   return {
-    i,
-    normalText,
-    span
+    i: i,
+    normalText: normalText,
+    span: span
   };
 }
 
-class Pdf {
-  constructor(options = null) {
+var Pdf =
+/*#__PURE__*/
+function () {
+  function Pdf() {
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+    _classCallCheck(this, Pdf);
+
     this.host = 'https://nclong87.github.io';
     this.path = '/pdfwriter';
     this.data = [];
     this.options = options;
   }
 
-  setHost(host) {
-    this.host = host;
-  }
+  _createClass(Pdf, [{
+    key: "setHost",
+    value: function setHost(host) {
+      this.host = host;
+    }
+  }, {
+    key: "setPath",
+    value: function setPath(path) {
+      this.path = path;
+    }
+  }, {
+    key: "addPage",
+    value: function addPage(options) {
+      this.data.push({
+        type: 'addPage',
+        item: {
+          options: options
+        }
+      });
+    }
+  }, {
+    key: "moveUp",
+    value: function moveUp() {
+      var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      this.data.push({
+        type: 'move',
+        item: {
+          direction: 'up',
+          value: value
+        }
+      });
+    }
+  }, {
+    key: "moveDown",
+    value: function moveDown() {
+      var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      this.data.push({
+        type: 'move',
+        item: {
+          direction: 'down',
+          value: value
+        }
+      });
+    }
+  }, {
+    key: "addIcon",
+    value: function addIcon(icon) {
+      var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      this.data.push({
+        type: 'icon',
+        item: {
+          icon: icon,
+          style: style,
+          options: options
+        }
+      });
+    }
+  }, {
+    key: "addImage",
+    value: function addImage(image) {
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      this.data.push({
+        type: 'image',
+        item: {
+          image: image,
+          options: options
+        }
+      });
+    }
+  }, {
+    key: "addText",
+    value: function addText(text) {
+      var _this = this;
 
-  setPath(path) {
-    this.path = path;
-  }
+      var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
-  addPage(options) {
-    this.data.push({
-      type: 'addPage',
-      item: {
-        options
-      }
-    });
-  }
+      var newContent = _replace(text, '<br/>', '<br>');
 
-  moveUp(value = 1) {
-    this.data.push({
-      type: 'move',
-      item: {
-        direction: 'up',
-        value
-      }
-    });
-  }
+      newContent = _replace(text, '<br></b>', '</b><br>');
 
-  moveDown(value = 1) {
-    this.data.push({
-      type: 'move',
-      item: {
-        direction: 'down',
-        value
-      }
-    });
-  }
+      _split(newContent, '<br>').forEach(function (text) {
+        if (text.length === 0) {
+          _this.data.push({
+            type: 'text',
+            item: {
+              text: ' ',
+              style: style,
+              options: options
+            }
+          });
 
-  addIcon(icon, style = null, options = null) {
-    this.data.push({
-      type: 'icon',
-      item: {
-        icon,
-        style,
-        options
-      }
-    });
-  }
-
-  addImage(image, options = {}) {
-    this.data.push({
-      type: 'image',
-      item: {
-        image,
-        options
-      }
-    });
-  }
-
-  addText(text, style = null, options = null) {
-    let newContent = _replace(text, '<br/>', '<br>');
-
-    newContent = _replace(text, '<br></b>', '</b><br>');
-
-    _split(newContent, '<br>').forEach(text => {
-      if (text.length === 0) {
-        this.data.push({
-          type: 'text',
-          item: {
-            text: ' ',
-            style,
-            options
-          }
-        });
-        return;
-      }
-
-      const array = [];
-      let max = 0;
-
-      for (let i = 0; i < text.length; i++) {
-        if (max > 30) {
-          break;
+          return;
         }
 
-        max += 1;
-        const str = text.substr(i);
-        const regex = /(<span|<b>)/g;
-        const matches = regex.exec(str);
+        var array = [];
+        var max = 0;
 
-        if (matches) {
-          if (matches[0].includes('<b>')) {
-            const {
-              normalText,
-              boldText,
-              n
-            } = findBoldTag(str, matches.index);
-            i += n;
-
-            if (normalText) {
-              array.push({
-                text: normalText,
-                type: 'n'
-              });
-            }
-
-            if (boldText) {
-              array.push({
-                text: boldText,
-                type: 'b'
-              });
-            }
-          } else if (matches[0].includes('<span')) {
-            const findSpanTagResp = findSpanTag(str, matches.index);
-            i += findSpanTagResp.i;
-            const {
-              normalText,
-              span
-            } = findSpanTagResp;
-            const {
-              text,
-              font,
-              color
-            } = span;
-
-            if (normalText) {
-              array.push({
-                text: normalText,
-                type: 'n'
-              });
-            }
-
-            if (text) {
-              array.push({
-                text: text,
-                type: font,
-                color: color
-              });
-            }
+        for (var i = 0; i < text.length; i++) {
+          if (max > 30) {
+            break;
           }
+
+          max += 1;
+          var str = text.substr(i);
+          var regex = /(<span|<b>)/g;
+          var matches = regex.exec(str);
+
+          if (matches) {
+            if (matches[0].includes('<b>')) {
+              var _findBoldTag = findBoldTag(str, matches.index),
+                  normalText = _findBoldTag.normalText,
+                  boldText = _findBoldTag.boldText,
+                  n = _findBoldTag.n;
+
+              i += n;
+
+              if (normalText) {
+                array.push({
+                  text: normalText,
+                  type: 'n'
+                });
+              }
+
+              if (boldText) {
+                array.push({
+                  text: boldText,
+                  type: 'b'
+                });
+              }
+            } else if (matches[0].includes('<span')) {
+              var findSpanTagResp = findSpanTag(str, matches.index);
+              i += findSpanTagResp.i;
+              var _normalText = findSpanTagResp.normalText,
+                  span = findSpanTagResp.span;
+              var _text = span.text,
+                  font = span.font,
+                  color = span.color;
+
+              if (_normalText) {
+                array.push({
+                  text: _normalText,
+                  type: 'n'
+                });
+              }
+
+              if (_text) {
+                array.push({
+                  text: _text,
+                  type: font,
+                  color: color
+                });
+              }
+            }
+          } else {
+            i = text.length;
+            array.push({
+              text: str,
+              type: 'n'
+            });
+          }
+        }
+
+        if (array.length === 1 && array[0].type === 'n') {
+          _this.data.push({
+            type: 'text',
+            item: {
+              text: array[0].text,
+              style: style,
+              options: options
+            }
+          });
         } else {
-          i = text.length;
-          array.push({
-            text: str,
-            type: 'n'
+          _this.data.push({
+            type: 'formatted-text',
+            item: {
+              text: array,
+              style: style,
+              options: options
+            }
           });
         }
-      }
+      });
+    }
+  }, {
+    key: "output",
+    value: function output() {
+      var host = this.host,
+          path = this.path;
+      this.iframe = document.createElement('iframe');
+      this.iframe.style = 'border:0 ;position: fixed;left: 0;top: 0;z-index: 9999;cursor: wait;background-color: #fff;opacity: 0.5;';
+      this.iframe.width = '100%';
+      this.iframe.height = '100%';
+      this.iframe.src = "".concat(host).concat(path);
+      document.body.appendChild(this.iframe);
+      var self = this;
+      var promise = new Promise(function (resolve) {
+        function handleOnReceivedMessage(event) {
+          if (event.data && event.data.type) {
+            if (event.data.type === 'ready') {
+              var data = {
+                data: self.data,
+                options: self.options
+              }; // console.log('data', data);
 
-      if (array.length === 1 && array[0].type === 'n') {
-        this.data.push({
-          type: 'text',
-          item: {
-            text: array[0].text,
-            style,
-            options
-          }
-        });
-      } else {
-        this.data.push({
-          type: 'formatted-text',
-          item: {
-            text: array,
-            style,
-            options
-          }
-        });
-      }
-    });
-  }
-
-  output() {
-    const {
-      host,
-      path
-    } = this;
-    this.iframe = document.createElement('iframe');
-    this.iframe.style = 'border:0 ;position: fixed;left: 0;top: 0;z-index: 9999;cursor: wait;background-color: #fff;opacity: 0.5;';
-    this.iframe.width = '100%';
-    this.iframe.height = '100%';
-    this.iframe.src = `${host}${path}`;
-    document.body.appendChild(this.iframe);
-    const self = this;
-    const promise = new Promise(resolve => {
-      function handleOnReceivedMessage(event) {
-        if (event.data && event.data.type) {
-          if (event.data.type === 'ready') {
-            const data = {
-              data: self.data,
-              options: self.options
-            }; // console.log('data', data);
-
-            self.iframe.contentWindow.postMessage(data, '*');
-          } else if (event.data.type === 'finish') {
-            // console.log(event.data.data);
-            resolve(event.data.data);
-            document.body.removeChild(self.iframe);
-            window.removeEventListener('message', handleOnReceivedMessage, false);
+              self.iframe.contentWindow.postMessage(data, '*');
+            } else if (event.data.type === 'finish') {
+              // console.log(event.data.data);
+              resolve(event.data.data);
+              document.body.removeChild(self.iframe);
+              window.removeEventListener('message', handleOnReceivedMessage, false);
+            }
           }
         }
+
+        window.addEventListener('message', handleOnReceivedMessage);
+      });
+      return promise["catch"](function (error) {
+        console.log('ERROR', error);
+        return null;
+      });
+    }
+  }, {
+    key: "save",
+    value: function () {
+      var _save = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee() {
+        var fileName,
+            blob,
+            url,
+            a,
+            _args = arguments;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                fileName = _args.length > 0 && _args[0] !== undefined ? _args[0] : null;
+                _context.next = 3;
+                return this.output();
+
+              case 3:
+                blob = _context.sent;
+                url = window.URL.createObjectURL(blob);
+                a = document.createElement('a');
+                document.body.appendChild(a);
+                a.style = 'display: none';
+                a.href = url;
+                a.download = fileName || 'untitled.pdf';
+                a.click();
+                window.URL.revokeObjectURL(url);
+
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function save() {
+        return _save.apply(this, arguments);
       }
 
-      window.addEventListener('message', handleOnReceivedMessage);
-    });
-    return promise.catch(error => {
-      console.log('ERROR', error);
-      return null;
-    });
-  }
+      return save;
+    }()
+  }]);
 
-  async save(fileName = null) {
-    const blob = await this.output();
-    const url = window.URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    document.body.appendChild(a);
-    a.style = 'display: none';
-    a.href = url;
-    a.download = fileName || 'untitled.pdf';
-    a.click();
-    window.URL.revokeObjectURL(url);
-  }
-
-}
+  return Pdf;
+}();
 
 module.exports = Pdf;
 //# sourceMappingURL=index.js.map

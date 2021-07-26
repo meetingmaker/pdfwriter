@@ -1,6 +1,6 @@
 {
   "name": "@meetingmaker/pdfwriter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A ReactJS library for writing PDF file",
   "repository": {
     "type": "git",
@@ -36,8 +36,8 @@
   "peerDependencies": {
     "lodash": "^4.17.11",
     "prop-types": "^15.5.4",
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
+    "react": "^16.0.0 || ^17.0.0",
+    "react-dom": "^16.0.0 || ^17.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
