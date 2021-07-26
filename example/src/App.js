@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Bar } from 'react-chartjs-2'
 
 import Pdf from '@meetingmaker/pdfwriter'
-
-const html2canvas = require('html2canvas');
+import { domToImage } from '@meetingmaker/pdfwriter/src/domUtils'
 
 function randomScalingFactor() {
   return Math.floor(Math.random() * 100);
@@ -72,8 +71,8 @@ export default class App extends Component {
       pdf.addText(' ');
       pdf.addText(text3);
       pdf.addText(' ');
-      const canvas = await html2canvas(this.chart);
-      const dataUrl = canvas.toDataURL();
+
+      const dataUrl = await domToImage(this.chart);
       // const dataUrl = await domtoimage.toPng(this.chart);
       pdf.addImage(dataUrl);
     } catch (e) {

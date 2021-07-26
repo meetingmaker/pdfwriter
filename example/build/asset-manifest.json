@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/pdfwriter/static/css/main.a2b7b0b6.chunk.css",
-    "main.js": "/pdfwriter/static/js/main.0c6fe972.chunk.js",
-    "main.js.map": "/pdfwriter/static/js/main.0c6fe972.chunk.js.map",
+    "main.js": "/pdfwriter/static/js/main.ce7ae547.chunk.js",
+    "main.js.map": "/pdfwriter/static/js/main.ce7ae547.chunk.js.map",
     "runtime-main.js": "/pdfwriter/static/js/runtime-main.42a109b1.js",
     "runtime-main.js.map": "/pdfwriter/static/js/runtime-main.42a109b1.js.map",
-    "static/js/2.329e12b3.chunk.js": "/pdfwriter/static/js/2.329e12b3.chunk.js",
-    "static/js/2.329e12b3.chunk.js.map": "/pdfwriter/static/js/2.329e12b3.chunk.js.map",
+    "static/js/2.40bcc709.chunk.js": "/pdfwriter/static/js/2.40bcc709.chunk.js",
+    "static/js/2.40bcc709.chunk.js.map": "/pdfwriter/static/js/2.40bcc709.chunk.js.map",
     "index.html": "/pdfwriter/index.html",
-    "precache-manifest.04bbc4c696592217c47c09eede379635.js": "/pdfwriter/precache-manifest.04bbc4c696592217c47c09eede379635.js",
+    "precache-manifest.80b68469c5371ecf918758adc014369e.js": "/pdfwriter/precache-manifest.80b68469c5371ecf918758adc014369e.js",
     "service-worker.js": "/pdfwriter/service-worker.js",
     "static/css/main.a2b7b0b6.chunk.css.map": "/pdfwriter/static/css/main.a2b7b0b6.chunk.css.map",
-    "static/js/2.329e12b3.chunk.js.LICENSE.txt": "/pdfwriter/static/js/2.329e12b3.chunk.js.LICENSE.txt"
+    "static/js/2.40bcc709.chunk.js.LICENSE.txt": "/pdfwriter/static/js/2.40bcc709.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.42a109b1.js",
-    "static/js/2.329e12b3.chunk.js",
+    "static/js/2.40bcc709.chunk.js",
     "static/css/main.a2b7b0b6.chunk.css",
-    "static/js/main.0c6fe972.chunk.js"
+    "static/js/main.ce7ae547.chunk.js"
   ]
 }

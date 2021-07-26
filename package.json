@@ -1,6 +1,6 @@
 {
   "name": "@meetingmaker/pdfwriter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A ReactJS library for writing PDF file",
   "repository": {
     "type": "git",
@@ -71,5 +71,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "html2canvas": "^1.1.4",
+    "react-device-detect": "^1.17.0"
+  }
 }

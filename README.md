@@ -17,6 +17,8 @@ import React, { Component } from 'react'
 
 import Pdf from '@meetingmaker/pdfwriter'
 
+import { domToImage } from '@meetingmaker/pdfwriter/domUtils'
+
 const html2canvas = require('html2canvas');
 
 const text = '3. <b>Consultation Services</b>: The Recruitment team provides <b>consultation on </b>new and replacement positions - hiring  –  process, salary<b> range, </b> hehehe<br><br>   <b>availability, possible</b> challenges/risks and strategies <br>to close the roles.';
@@ -38,8 +40,8 @@ class Example extends Component {
       pdf.addText(' ');
       pdf.addText(text3);
       pdf.addText(' ');
-      const canvas = await html2canvas(this.chart);
-      const dataUrl = canvas.toDataURL();
+
+      const dataUrl = await domToImage(this.chart);
       pdf.addImage(dataUrl);
 
       // add Page
